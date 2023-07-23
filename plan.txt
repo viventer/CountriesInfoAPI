@@ -1,0 +1,4 @@
+Ma być api w którym w bazie danych będą przechowywane dane o państwach, w tym geojson.
+
+Do api zbudowany jest też frontend - strona internetowaa ze skryptem rejestracji i logowania. 
+Z tamtąd użytkownik uzyskuje klucz dostępu którego potem używa w swojej aplikacji (zamiast nazwy użytkownika).
