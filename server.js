@@ -10,8 +10,11 @@ const mongoose = require("mongoose");
 const connectDB = require("./config/dbConn");
 const credentials = require("./middleware/credentials");
 const PORT = process.env.PORT || 3500;
+const insertData = require("./model/insertData");
 
 connectDB();
+
+insertData();
 
 app.use(logger);
 app.use(credentials);
@@ -30,7 +33,7 @@ app.use("/refresh", require("./routes/refresh"));
 app.use("/logout", require("./routes/logout"));
 
 app.use(verifyJWT);
-app.use("/countriesBorders", require("./routes/api/countriesBorders.js"));
+app.use("/countries-borders", require("./routes/api/countriesBorders.js"));
 
 app.use(errorHandler);
 

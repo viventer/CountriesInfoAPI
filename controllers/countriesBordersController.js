@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 const CountryBordersGeojson = require("../model/CountryBordersGeojson");
 
 const getAllCountriesBorders = async (req, res) => {
@@ -8,8 +10,9 @@ const getAllCountriesBorders = async (req, res) => {
 };
 
 const getCountryBorders = async (req, res) => {
-  if (!req?.params?.countryCode)
+  if (!req?.params?.countryCode) {
     return res.status(400).json({ message: "Country code required." });
+  }
 
   if (countryCode.length < 3) {
     const codeType = "ISO_A2";

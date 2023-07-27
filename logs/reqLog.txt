@@ -1,1 +1,7 @@
 20230726	17:20:31	b80cc5d1-d161-4701-8700-49af27123823	POST	undefined	/register
+20230727	15:25:30	4c928e40-d098-47be-9a03-ca6d0f1c290b	GET	undefined	/countries-borders
+20230727	15:26:06	f18bc4d0-a516-4222-8f1f-5ce729c6e77d	GET	undefined	/refresh
+20230727	15:26:18	02c87fc3-3748-4d45-b496-fe59bf6654fe	POST	undefined	/auth
+20230727	15:26:34	35e09127-733b-4456-a014-28e562737507	GET	undefined	/countries-borders
+20230727	15:26:37	45cf50f7-5589-4e90-a790-421ff1f03c36	GET	undefined	/countries-borders
+20230727	15:46:18	55dfae16-92bb-4340-9dd7-d81ded62494e	POST	undefined	/countries-borders
