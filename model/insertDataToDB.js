@@ -2,7 +2,7 @@ const countriesBordersGeojson = require("./CountryBordersGeojson");
 const fs = require("fs");
 const path = require("path");
 
-async function insertData() {
+async function insertCountryBordersGeojson() {
   const filePath = path.join(__dirname, "countryBordersGeojson.json");
 
   const rawData = fs.readFileSync(filePath);
@@ -10,11 +10,19 @@ async function insertData() {
 
   await countriesBordersGeojson.deleteMany({});
 
+  const { features: rawFeaturesData } = data;
+
+  const formattedFeaturesData = rawFeaturesData.map((feature) => {
+    return { type: "FeatureCollection", features: [feature] };
+  });
+
   try {
-    const result = await countriesBordersGeojson.insertMany(data);
+    const result = await countriesBordersGeojson.insertMany(
+      formattedFeaturesData
+    );
   } catch (error) {
     console.error(error);
   }
 }
 
-module.exports = insertData;
+module.exports = insertCountryBordersGeojson;

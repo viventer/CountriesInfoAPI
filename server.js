@@ -10,11 +10,8 @@ const mongoose = require("mongoose");
 const connectDB = require("./config/dbConn");
 const credentials = require("./middleware/credentials");
 const PORT = process.env.PORT || 3500;
-const insertData = require("./model/insertData");
 
 connectDB();
-
-insertData();
 
 app.use(logger);
 app.use(credentials);
