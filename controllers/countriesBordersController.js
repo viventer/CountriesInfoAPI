@@ -14,15 +14,16 @@ const getCountryBorders = async (req, res) => {
     return res.status(400).json({ message: "Country code required." });
   }
 
-  if (countryCode.length < 3) {
-    const codeType = "ISO_A2";
-  } else {
-    const codeType = "ISO_A3";
-  }
+  const codeType = req.params.countryCode.length < 3 ? "ISO_A2" : "ISO_A3";
 
-  const countryBorders = await CountryBordersGeojson.findOne({
-    [codeType]: req.params.countryCode,
-  }).exec();
+  const query = {
+    "features.properties": {
+      [codeType]: req.params.countryCode,
+    },
+  };
+
+  const countryBorders = await CountryBordersGeojson.findOne(query).exec();
+  console.log(countryBorders);
   if (!countryBorders) {
     return res
       .status(204)

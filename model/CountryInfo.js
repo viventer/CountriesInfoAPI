@@ -31,7 +31,7 @@ const countryInfoSchema = new Schema({
     required: true,
   },
   population: {
-    type: Integer,
+    type: Number,
     required: true,
   },
   mainReligion: {
@@ -39,11 +39,11 @@ const countryInfoSchema = new Schema({
     required: true,
   },
   area: {
-    type: Integer,
+    type: Number,
     required: true,
   },
   nominalGDPPerCapita: {
-    type: Integer,
+    type: Number,
     required: true,
   },
   drivingSide: {
