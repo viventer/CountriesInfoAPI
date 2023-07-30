@@ -31,6 +31,7 @@ app.use("/logout", require("./routes/logout"));
 
 app.use(verifyJWT);
 app.use("/countries-borders", require("./routes/api/countriesBorders.js"));
+app.use("/countries-info", require("./routes/api/countriesInfo.js"));
 
 app.use(errorHandler);
 

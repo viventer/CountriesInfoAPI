@@ -1,11 +1,10 @@
-const fs = require("fs");
-
 const CountryBordersGeojson = require("../model/CountryBordersGeojson");
 
 const getAllCountriesBorders = async (req, res) => {
   const countriesBorders = await CountryBordersGeojson.find();
-  if (!countriesBorders)
+  if (!countriesBorders) {
     return res.status(204).json({ message: "No countries borders found" });
+  }
   res.json(countriesBorders);
 };
 
@@ -25,7 +24,6 @@ const getCountryBorders = async (req, res) => {
   };
 
   const countryBorders = await CountryBordersGeojson.findOne(query).exec();
-  console.log(countryBorders);
   if (!countryBorders) {
     return res
       .status(204)

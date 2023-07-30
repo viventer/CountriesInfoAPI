@@ -32,3 +32,10 @@
 20230730	19:20:12	329511e6-3d76-4314-b4f3-7f64db14aa2f	POST	undefined	/auth
 20230730	19:20:16	0e1e21d3-c398-4550-ab3f-cd63dbee733a	GET	undefined	/countries-borders/POL
 20230730	19:20:59	f73d1437-891f-4b9a-9ce6-0400656799c6	GET	undefined	/countries-borders/PL
+20230730	19:31:10	060a74de-eddb-47d3-87f1-ec6735b4c7b1	POST	undefined	/auth
+20230730	19:31:29	02939a87-b22f-4516-bbaa-072802c90afe	GET	undefined	/countries-info
+20230730	19:31:32	4248dcd9-5051-4996-919e-e23b8fab4a2a	GET	undefined	/countries-info
+20230730	19:34:06	a2dd186a-0ed6-4717-9619-1168b43340c9	GET	undefined	/countries-info
+20230730	19:39:18	a671bf2c-9860-4170-a726-2ae7062883c4	POST	undefined	/auth
+20230730	19:39:31	0ded3535-8c1c-471b-94d6-74e2ffd00619	GET	undefined	/countries-info/POL
+20230730	19:39:37	e7fd1c72-5623-437d-8fc8-f100b7898cea	GET	undefined	/countries-info/PL
