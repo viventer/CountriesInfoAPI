@@ -18,7 +18,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  accessKey: String,
+  apiKeys: [String],
   refreshToken: [String],
 });
 

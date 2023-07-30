@@ -33,6 +33,8 @@ app.use(verifyJWT);
 app.use("/countries-borders", require("./routes/api/countriesBorders.js"));
 app.use("/countries-info", require("./routes/api/countriesInfo.js"));
 
+app.use("/api-key", require("./routes/api/apiKey"));
+
 app.use(errorHandler);
 
 mongoose.connection.once("open", () => {
