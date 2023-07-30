@@ -22,3 +22,13 @@
 20230729	15:41:48	4f8f2570-26be-45fd-b8e3-51adbdb7f025	GET	undefined	/countries-borders/POL
 20230729	15:45:34	7dff4d8f-1ce7-43ba-83da-50e2b5723760	GET	undefined	/countries-borders/POL
 20230729	15:45:55	11a91876-afb9-412a-a689-e37560db87b2	GET	undefined	/countries-borders/POL
+20230730	19:09:52	ce6111e2-219c-4145-875d-18a9809e77f4	POST	undefined	/auth
+20230730	19:09:55	ad785445-b565-4c37-9351-93ec19c1a064	GET	undefined	/countries-borders/POL
+20230730	19:10:04	00a10a1e-d520-46f5-96f3-fa53b7a426a4	GET	undefined	/countries-borders/POL
+20230730	19:12:06	7249bf3f-f152-4f1c-8f1e-5cced3cb0536	GET	undefined	/countries-borders/POL
+20230730	19:12:22	260f5e32-6905-47c5-8d7e-76d7cce0b34a	GET	undefined	/countries-borders/POL
+20230730	19:13:06	c5c5a313-cae0-4a65-af42-ae642ec8c1fd	GET	undefined	/countries-borders/POL
+20230730	19:20:08	1f8142e0-416e-4153-903d-a07ba925083b	GET	undefined	/countries-borders/POL
+20230730	19:20:12	329511e6-3d76-4314-b4f3-7f64db14aa2f	POST	undefined	/auth
+20230730	19:20:16	0e1e21d3-c398-4550-ab3f-cd63dbee733a	GET	undefined	/countries-borders/POL
+20230730	19:20:59	f73d1437-891f-4b9a-9ce6-0400656799c6	GET	undefined	/countries-borders/PL

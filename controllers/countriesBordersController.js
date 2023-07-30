@@ -17,8 +17,10 @@ const getCountryBorders = async (req, res) => {
   const codeType = req.params.countryCode.length < 3 ? "ISO_A2" : "ISO_A3";
 
   const query = {
-    "features.properties": {
-      [codeType]: req.params.countryCode,
+    features: {
+      $elemMatch: {
+        ["properties." + codeType]: req.params.countryCode,
+      },
     },
   };
 
