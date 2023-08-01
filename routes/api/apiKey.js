@@ -5,7 +5,7 @@ const apiKeyController = require("../../controllers/apiKeyController");
 router.route("/generate").get(apiKeyController.getNewApiKey);
 
 router
-  .route("/")
+  .route("/all")
   .get(apiKeyController.getAllUserApiKeys)
   .delete(apiKeyController.deleteAllUserApiKeys);
 
