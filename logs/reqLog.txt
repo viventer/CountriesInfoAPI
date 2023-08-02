@@ -112,3 +112,12 @@
 20230801	13:46:01	c70d5220-d58c-4666-922e-1fa4c6edb2f5	DELETE	undefined	/api-key/all
 20230802	13:24:56	4eb44dce-ff76-43f6-9072-0fb5a04c14bd	POST	undefined	/auth
 20230802	13:25:11	d2ad3bee-5534-4cb3-988a-b0d5f6f09659	GET	undefined	/countries-info/PL
+20230802	13:34:18	741f8f9c-9082-49be-85fc-792bda53d1fa	POST	undefined	/auth
+20230802	13:34:37	e57e8578-e9e1-4c2f-af5d-a6bcfd3f6cc1	GET	undefined	/countries-info/PL
+20230802	13:36:34	53de7263-faf6-442b-b05d-bdec1fd8a4d5	GET	undefined	/countries-info/PL
+20230802	13:37:24	91f0304e-40a8-42a6-99ac-5a667ecab2fd	GET	undefined	/api-key/generate
+20230802	13:37:30	9a853d2b-0a68-402c-b7ef-359b84ea77da	GET	undefined	/api-key/generate
+20230802	13:38:01	cc424b38-993e-4bf5-90cb-a2a267eee614	GET	undefined	/api-key/generate
+20230802	13:38:23	dd4920d5-88ff-4dda-9ceb-ce6ee6f01ebd	GET	undefined	/countries-info/PL
+20230802	13:38:35	2c765d66-beda-4726-b7d1-3c0cdf8512c7	GET	undefined	/countries-info/PL
+20230802	13:38:42	17309274-e9f2-4f9f-8428-4e2dfac224f1	GET	undefined	/countries-info/PL
