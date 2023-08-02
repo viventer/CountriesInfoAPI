@@ -110,3 +110,5 @@
 20230801	13:43:19	94dd86f8-480b-4636-bfa5-dd8de2ed0520	DELETE	undefined	/api-key/all
 20230801	13:45:41	594aae05-94ce-49e3-8cfb-5f257657fa9b	DELETE	undefined	/api-key/all
 20230801	13:46:01	c70d5220-d58c-4666-922e-1fa4c6edb2f5	DELETE	undefined	/api-key/all
+20230802	13:24:56	4eb44dce-ff76-43f6-9072-0fb5a04c14bd	POST	undefined	/auth
+20230802	13:25:11	d2ad3bee-5534-4cb3-988a-b0d5f6f09659	GET	undefined	/countries-info/PL

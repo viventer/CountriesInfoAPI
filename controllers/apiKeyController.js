@@ -1,9 +1,7 @@
-const User = require("../model/User");
-
 const { v4: uuidv4 } = require("uuid");
 
 const getNewApiKey = async (req, res) => {
-  const loggedUser = await getLoggedUser(req.user);
+  const loggedUser = req.loggedUser;
 
   const MAX_API_KEYS_NUMBER = 3;
   const userApiKeysNumber = loggedUser.apiKeys.length;
@@ -22,7 +20,7 @@ const getNewApiKey = async (req, res) => {
 };
 
 const getAllUserApiKeys = async (req, res) => {
-  const loggedUser = await getLoggedUser(req.user);
+  const loggedUser = req.loggedUser;
 
   return res.json(loggedUser.apiKeys);
 };
@@ -43,7 +41,7 @@ const deleteAllUserApiKeys = async (req, res) => {
 };
 
 const deleteUserApiKey = async (req, res) => {
-  const loggedUser = await getLoggedUser(req.user);
+  const loggedUser = req.loggedUser;
 
   const apiKeyId = req?.params?.id;
   if (!apiKeyId) {
@@ -65,11 +63,6 @@ const deleteUserApiKey = async (req, res) => {
   await loggedUser.save();
 
   res.json({ message: `The api key with id ${apiKeyId} have been removed` });
-};
-
-const getLoggedUser = async (username) => {
-  const loggedUser = await User.findOne({ username }).exec();
-  return loggedUser;
 };
 
 module.exports = {
