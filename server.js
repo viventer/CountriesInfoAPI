@@ -6,7 +6,7 @@ const cors = require("cors");
 const { logger } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const verifyJWT = require("./middleware/verifyJWT");
-const getLoggedUser = require("./middleware/getLoggedUser");
+const getUser = require("./middleware/getUser");
 const credentials = require("./middleware/credentials");
 const verifyApiKey = require("./middleware/verifyApiKey");
 
@@ -35,14 +35,13 @@ app.use("/auth", require("./routes/auth"));
 app.use("/refresh", require("./routes/refresh"));
 app.use("/logout", require("./routes/logout"));
 
-app.use(verifyJWT);
-app.use(getLoggedUser);
-
-app.use("/api-key", require("./routes/api/apiKey"));
-
+app.use(getUser);
 app.use(verifyApiKey);
 app.use("/countries-borders", require("./routes/api/countriesBorders.js"));
 app.use("/countries-info", require("./routes/api/countriesInfo.js"));
+
+app.use(verifyJWT);
+app.use("/api-key", require("./routes/api/apiKey"));
 
 app.use(errorHandler);
 
