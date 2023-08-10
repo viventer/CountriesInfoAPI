@@ -4,6 +4,7 @@ const getUser = async (req, res, next) => {
   if (!req?.headers?.username) {
     return res.status(400).json({ message: "Username required" });
   }
+  console.log(req.headers.username);
 
   const user = await User.findOne({ username: req.headers.username }).exec();
   if (!user) {
