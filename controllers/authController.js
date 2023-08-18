@@ -5,16 +5,18 @@ const jwt = require("jsonwebtoken");
 const handleLogin = async (req, res) => {
   const cookies = req.cookies;
   console.log(`cookie available at login: ${JSON.stringify(cookies)}`);
-  const { user, pwd } = req.body;
-  if (!user || !pwd)
+  const { username, password } = req.body;
+  if (!username || !password) {
+    console.log(username);
     return res
       .status(400)
       .json({ message: "Username and password are required" });
+  }
 
-  const foundUser = await User.findOne({ username: user }).exec();
+  const foundUser = await User.findOne({ username }).exec();
   if (!foundUser) return res.sendStatus(401);
 
-  const match = await bcrypt.compare(pwd, foundUser.password);
+  const match = await bcrypt.compare(password, foundUser.password);
   if (match) {
     const roles = Object.values(foundUser.roles).filter(Boolean);
     const accessToken = jwt.sign(

@@ -26,7 +26,7 @@ const getAllUserApiKeys = async (req, res) => {
 };
 
 const deleteAllUserApiKeys = async (req, res) => {
-  const loggedUser = await getLoggedUser(req.user);
+  const loggedUser = await getLoggedUser(req.username);
 
   const userApiKeysNumber = loggedUser.apiKeys.length;
   if (userApiKeysNumber < 1) {

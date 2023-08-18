@@ -23,7 +23,13 @@ connectDB();
 app.use(logger);
 app.use(credentials);
 
-app.use(cors());
+app.use(
+  cors({
+    origin: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 app.use(express.urlencoded({ extended: false }));
 
