@@ -1330,3 +1330,13 @@
 20230818	14:10:52	4ef61055-40e1-4ee7-9772-d5042574dc24	POST	http://localhost:3000	/auth
 20230818	14:14:01	5858237c-b403-45bc-aabe-7b9074e3532c	OPTIONS	http://localhost:3000	/auth
 20230818	14:14:01	2b3c942d-7f07-47ae-99a0-151b5c44a891	POST	http://localhost:3000	/auth
+20230819	12:01:00	72f0dec8-9c28-4a3e-ae78-7d2cca43f320	GET	http://localhost:3000	/refresh
+20230819	12:01:07	73879857-6790-4266-85b3-af763b5c9208	GET	http://localhost:3000	/refresh
+20230819	12:01:07	637a37fd-f6e3-4a5a-81ad-ac75971d0b11	GET	http://localhost:3000	/refresh
+20230819	12:01:11	4daf1a15-7be6-4860-a618-cee1aee33fd4	GET	http://localhost:3000	/refresh
+20230819	12:02:17	fadb8dd8-1188-4b11-adbd-685258606355	OPTIONS	http://localhost:3000	/auth
+20230819	12:02:17	c8ae9386-18b0-4c51-b0c7-e937f68ec977	POST	http://localhost:3000	/auth
+20230819	12:04:10	c9cb8cdd-2042-492d-ae28-dae6a90cac3c	OPTIONS	http://localhost:3000	/auth
+20230819	12:04:10	b22671c7-03b4-4724-91cb-e119915ef86d	POST	http://localhost:3000	/auth
+20230819	12:07:35	5be06515-3df2-40ea-b402-dcae990c28ff	OPTIONS	http://localhost:3000	/auth
+20230819	12:07:35	b98001f2-03ba-484c-9392-7cfe717f8e22	POST	http://localhost:3000	/auth
