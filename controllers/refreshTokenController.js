@@ -74,6 +74,8 @@ const handleRefreshToken = async (req, res) => {
         secure: true,
       });
 
+      console.log(`cookie: ${cookies.jwt}`);
+
       res.json({ accessToken });
     }
   );
