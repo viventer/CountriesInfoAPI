@@ -42,8 +42,6 @@ app.use("/auth", require("./routes/auth"));
 app.use("/refresh", require("./routes/refresh"));
 app.use("/logout", require("./routes/logout"));
 
-app.use(getUser);
-app.use(verifyApiKey);
 app.use("/countries-borders", require("./routes/api/countriesBorders.js"));
 app.use("/countries-info", require("./routes/api/countriesInfo.js"));
 
