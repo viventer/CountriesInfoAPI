@@ -30,7 +30,7 @@ const deleteAllUserApiKeys = async (req, res) => {
 
   const userApiKeysNumber = loggedUser.apiKeys.length;
   if (userApiKeysNumber < 1) {
-    return res.json({ message: "There is no api key to delete" });
+    return res.status(400).json({ message: "There is no api key to delete" });
   }
 
   loggedUser.apiKeys = [];
@@ -50,12 +50,14 @@ const deleteUserApiKey = async (req, res) => {
 
   const userApiKeys = loggedUser.apiKeys;
   if (!userApiKeys) {
-    return res.json({ message: "User doesn't have any api key" });
+    return res.status(400).json({ message: "User doesn't have any api key" });
   }
 
   const searchedApiKey = userApiKeys[apiKeyId];
   if (!searchedApiKey) {
-    return res.json({ message: "There is no api key with provided id" });
+    return res
+      .status(400)
+      .json({ message: "There is no api key with provided id" });
   }
 
   loggedUser.apiKeys.splice(apiKeyId, 1);
