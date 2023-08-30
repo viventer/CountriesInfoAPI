@@ -26,7 +26,7 @@ const getAllUserApiKeys = async (req, res) => {
 };
 
 const deleteAllUserApiKeys = async (req, res) => {
-  const loggedUser = await getLoggedUser(req.username);
+  const loggedUser = req.loggedUser;
 
   const userApiKeysNumber = loggedUser.apiKeys.length;
   if (userApiKeysNumber < 1) {
@@ -45,7 +45,7 @@ const deleteUserApiKey = async (req, res) => {
 
   const apiKeyId = req?.params?.id;
   if (!apiKeyId) {
-    return res.status(400).json({ message: "Id required" });
+    return res.status(400).json({ message: "Api key id required" });
   }
 
   const userApiKeys = loggedUser.apiKeys;

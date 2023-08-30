@@ -26,7 +26,7 @@ const getCountryBorders = async (req, res) => {
   const countryBorders = await CountryBordersGeojson.findOne(query).exec();
   if (!countryBorders) {
     return res
-      .status(204)
+      .status(400)
       .json({ message: `No country matches code ${req.params.countryCode}` });
   }
   res.json(countryBorders);

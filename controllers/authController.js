@@ -1,12 +1,11 @@
 const User = require("../model/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const asyncHandler = require("express-async-handler");
 
 // @desc Login
-// @route POST /auth
+// @route POST /login
 // @access Public
-const login = asyncHandler(async (req, res) => {
+const login = async (req, res) => {
   const { username, password } = req.body;
 
   if (!username || !password) {
@@ -14,7 +13,6 @@ const login = asyncHandler(async (req, res) => {
   }
 
   const foundUser = await User.findOne({ username }).exec();
-  console.log(foundUser);
 
   if (!foundUser) {
     return res.status(401).json({ message: "Unauthorized" });
@@ -41,22 +39,20 @@ const login = asyncHandler(async (req, res) => {
     { expiresIn: "7d" }
   );
 
-  // Create secure cookie with refresh token
   res.cookie("jwt", refreshToken, {
-    httpOnly: true, //accessible only by web server
-    secure: true, //https
-    sameSite: "None", //cross-site cookie
-    maxAge: 7 * 24 * 60 * 60 * 1000, //cookie expiry: set to match rT
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+    maxAge: 7 * 24 * 60 * 60 * 1000,
   });
 
-  // Send accessToken containing username and roles
   res.json({ accessToken });
-});
+};
 
 // @desc Refresh
-// @route GET /auth/refresh
-// @access Public - because access token has expired
-const refresh = asyncHandler(async (req, res) => {
+// @route GET /refresh
+// @access Public
+const refresh = async (req, res) => {
   const cookies = req.cookies;
 
   if (!cookies?.jwt) return res.status(401).json({ message: "Unauthorized" });
@@ -89,26 +85,25 @@ const refresh = asyncHandler(async (req, res) => {
       res.json({ accessToken });
     })
   );
-});
+};
 
 // @desc Logout
-// @route POST /auth/logout
-// @access Public - just to clear cookie if exists
+// @route POST /logout
+// @access Public
 const logout = (req, res) => {
   const cookies = req.cookies;
-  if (!cookies?.jwt) return res.sendStatus(204); //No content
+  if (!cookies?.jwt) return res.sendStatus(204); // No content
   return res
     .clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true })
     .json({ message: "Cookie cleared" });
 };
 
-// @desc Create new user
-// @route POST /users
-// @access Private
-const register = asyncHandler(async (req, res) => {
+// @desc Register
+// @route POST /register
+// @access Public
+const register = async (req, res) => {
   const { username, password } = req.body;
 
-  // Confirm data
   if (!username || !password) {
     return res.status(400).json({ message: "All fields are required" });
   }
@@ -123,19 +118,16 @@ const register = asyncHandler(async (req, res) => {
     return res.status(409).json({ message: "Duplicate username" });
   }
 
-  // Hash password
-  const hashedPwd = await bcrypt.hash(password, 10); // salt rounds
+  const hashedPwd = await bcrypt.hash(password, 10);
 
-  // Create and store new user
   const user = await User.create({ username, password: hashedPwd });
 
   if (user) {
-    //created
     res.status(201).json({ message: `New user ${username} created` });
   } else {
     res.status(400).json({ message: "Invalid user data received" });
   }
-});
+};
 
 module.exports = {
   login,

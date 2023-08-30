@@ -3,7 +3,7 @@ const CountryInfo = require("../model/CountryInfo");
 const getAllCountriesInfo = async (req, res) => {
   const countriesInfo = await CountryInfo.find();
   if (!countriesInfo) {
-    return res.status(204).json({ message: "No countries info found" });
+    return res.status(400).json({ message: "No countries info found" });
   }
   res.json(countriesInfo);
 };
@@ -19,7 +19,7 @@ const getCountryInfo = async (req, res) => {
   const countryInfo = await CountryInfo.findOne({ [codeType]: countryCode });
   if (!countryInfo) {
     return res
-      .status(204)
+      .status(400)
       .json({ message: `No country matches code ${req.params.countryCode}` });
   }
   res.json(countryInfo);
