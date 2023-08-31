@@ -1,13 +1,14 @@
-const countriesBordersGeojson = require("../model/CountryBordersGeojson");
-const CountryInfo = require("../model/CountryInfo");
 const fs = require("fs");
 const path = require("path");
 
-async function insertCountryBordersGeojson() {
+const countriesBordersGeojson = require("../model/CountryBordersGeojson");
+const CountryInfo = require("../model/CountryInfo");
+
+async function insertCountryBordersGeojson(fileName) {
   // delete all the old data from db
   await countriesBordersGeojson.deleteMany({});
 
-  const data = readData("countryBordersGeojson.json");
+  const data = readData(fileName);
 
   const { features: rawFeaturesData } = data;
 
@@ -16,33 +17,35 @@ async function insertCountryBordersGeojson() {
   });
 
   try {
-    const result = await countriesBordersGeojson.insertMany(
-      formattedFeaturesData
-    );
+    await countriesBordersGeojson.insertMany(formattedFeaturesData);
   } catch (error) {
     console.error(error);
   }
 }
 
-async function insertCountryInfo() {
+async function insertCountryInfo(fileName) {
   await CountryInfo.deleteMany({});
 
-  const data = readData("countryInfo.json");
+  const data = readData(fileName);
 
   try {
-    const result = await CountryInfo.insertMany(data);
+    await CountryInfo.insertMany(data);
   } catch (error) {
     console.error(error);
   }
 }
 
 function readData(fileName) {
-  const filePath = path.join(__dirname, fileName);
+  const filePath = getPath(fileName);
 
   const rawData = fs.readFileSync(filePath);
   const data = JSON.parse(rawData);
 
   return data;
+}
+
+function getPath(fileName) {
+  return `../model/${fileName}`;
 }
 
 module.exports = {
